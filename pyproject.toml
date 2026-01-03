@@ -1,0 +1,11 @@
+[project]
+name = "src"
+version = "0.0.1"
+description = "Multiclass Complaints Classification project using Bi-LSTM"
+authors = [{name = "Simran Mishra", email = "simranmishra1992x@gmail.com"}]
+
+[tool.setuptools]
+packages = {find = {}}
+
+[tool.setuptools.dynamic]
+dependencies = {file = "requirements.txt"}

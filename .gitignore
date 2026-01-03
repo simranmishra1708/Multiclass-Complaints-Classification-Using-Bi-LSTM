@@ -3,9 +3,10 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+artifact/
 # C extensions
 *.so
-
+notebook/MongoDB.ipynb
 # Distribution / packaging
 .Python
 build/
