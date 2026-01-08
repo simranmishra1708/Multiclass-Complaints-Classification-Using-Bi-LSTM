@@ -4,7 +4,6 @@ import pandas as pd
 import re
 from nltk.corpus import stopwords
 from sklearn.preprocessing import LabelEncoder
-
 from src.constants import TARGET_COLUMN, SCHEMA_FILE_PATH, CURRENT_YEAR, TEXT_COLUMN
 from src.entity.config_entity import DataTransformationConfig
 from src.entity.artifact_entity import DataTransformationArtifact, DataIngestionArtifact, DataValidationArtifact
@@ -96,8 +95,9 @@ class DataTransformation:
             label_encoder = LabelEncoder()
             train_df["target"] = label_encoder.fit_transform(train_df["product"])
             test_df["target"] = label_encoder.transform(test_df["product"])
+            
 
-            save_object(self.data_transformation_config.label_encoder_file_path,label_encoder)
+            save_object(self.data_transformation_config.transformed_object_file_path, label_encoder)
             save_csv_data(self.data_transformation_config.transformed_train_file_path, train_df)
             save_csv_data(self.data_transformation_config.transformed_test_file_path, test_df)
             logging.info("Saving transformation object and transformed files.")
@@ -105,7 +105,7 @@ class DataTransformation:
             logging.info("Data transformation completed successfully")
 
             return DataTransformationArtifact(
-                transformed_object_file_path=self.data_transformation_config.label_encoder_file_path,
+                transformed_object_file_path=self.data_transformation_config.transformed_object_file_path,
                 transformed_train_file_path=self.data_transformation_config.transformed_train_file_path,
                 transformed_test_file_path=self.data_transformation_config.transformed_test_file_path
             )

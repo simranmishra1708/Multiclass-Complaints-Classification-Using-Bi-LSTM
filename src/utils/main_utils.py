@@ -1,7 +1,9 @@
 import os
 import sys
+from turtle import pd
 
 import numpy as np
+import pandas as pd
 import dill
 import yaml
 from pandas import DataFrame
@@ -103,3 +105,15 @@ def save_csv_data(file_path: str, df: DataFrame) -> None:
 
     except Exception as e:
         raise MyException(e, sys)
+    
+def load_csv_data(file_path: str) -> DataFrame:
+    """
+    Load pandas DataFrame from CSV file.
+
+    file_path: location of the CSV file to load
+    return: pandas DataFrame
+    """
+    try:
+        return pd.read_csv(file_path)
+    except Exception as e:
+        raise MyException(e, sys) from e
