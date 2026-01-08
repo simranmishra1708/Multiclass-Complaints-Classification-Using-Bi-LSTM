@@ -1,0 +1,6 @@
+columns:
+  index: int
+  product: string
+  narrative: string
+
+drop_columns: index

@@ -47,9 +47,10 @@ class ComplaintsData:
             # Convert collection data to DataFrame and preprocess
             print("Fetching data from mongoDB")
             df = pd.DataFrame(list(collection.find()))
-            print(f"Data fecthed with len: {len(df)}")
-            if "id" in df.columns.to_list():
-                df = df.drop(columns=["id"], axis=1)
+            print(f"Data fetched with len: {len(df)}")
+            df.rename(columns={"Unnamed: 0": "index"}, inplace=True)
+            if "_id" in df.columns.to_list():
+                df = df.drop(columns=["_id"], axis=1)
             df.replace({"na":np.nan},inplace=True)
             return df
 
