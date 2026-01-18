@@ -48,3 +48,14 @@ class ModelTrainerConfig:
     model_config_file_path: str = MODEL_TRAINER_MODEL_CONFIG_FILE_PATH
     model_expected_score: float = MODEL_TRAINER_EXPECTED_SCORE
     metric_file_path: str = os.path.join(model_trainer_dir,MODEL_METRICS_FILE_NAME)
+    
+@dataclass
+class ModelEvaluationConfig:
+    changed_threshold_score: float = MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE
+    bucket_name: str = MODEL_BUCKET_NAME
+    s3_model_key_path: str = MODEL_FILE_NAME
+    
+@dataclass
+class ModelPusherConfig:
+    bucket_name: str = MODEL_BUCKET_NAME
+    s3_model_key_path: str = MODEL_FILE_NAME

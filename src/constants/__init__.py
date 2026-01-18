@@ -14,6 +14,7 @@ MODEL_FILE_NAME = "model.pkl"
 TEXT_COLUMN = "complaint_text"
 TARGET_COLUMN = "product"
 CURRENT_YEAR = date.today().year
+
 PREPROCSSING_OBJECT_FILE_NAME = "preprocessing.pkl"
 
 FILE_NAME: str = "complaints_processed.csv"
@@ -34,7 +35,7 @@ DATA_INGESTION_COLLECTION_NAME: str = "complaints_collection"
 DATA_INGESTION_DIR_NAME: str = "data_ingestion"
 DATA_INGESTION_FEATURE_STORE_DIR: str = "feature_store"
 DATA_INGESTION_INGESTED_DIR: str = "ingested"
-DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO: float = 0.30
+DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO: float = 0.25
 
 """
 Data Validation realted contant start with DATA_VALIDATION VAR NAME
@@ -65,7 +66,7 @@ MODEL_TRAINER_MODEL_CONFIG_FILE_PATH: str = os.path.join("config", "model.yaml")
 MODEL Evaluation related constants
 """
 MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE: float = 0.02
-MODEL_BUCKET_NAME = "simranmishra-model-mlops-vehicle-insurance"
+MODEL_BUCKET_NAME = "nlp-proj-bucket-s3"
 MODEL_PUSHER_S3_KEY = "model-registry"
 
 
